@@ -1,16 +1,17 @@
 <template>
   <section class="section-2">
-    <b-form class="form" @submit.prevent="submit()">
+    <b-form class="form" @submit.prevent="submit(search)">
       <div class="field-component">
         <div class="input-area">
           <b-form-input
             type="text"
             id="location-input"
             placeholder="Local..."
+            autocomplete="off"
             v-model="search"
             class="shadow-none"
           />
-          <label class="error-label" v-if="isError">Local não existe!</label>
+          <label class="error-label" v-if="isError">Local inválido!</label>
         </div>
         <b-button type="submit" class="search-button">
           <b-icon-search style="color: #0d222e"></b-icon-search>
@@ -19,10 +20,14 @@
     </b-form>
 
     <div class="suggested-location">
-      <p>Canada</p>
-      <p>China</p>
-      <p>New York</p>
-      <p>California</p>
+      <ul>
+        <li 
+        v-for="location of suggestedLocations" :key="location"
+        @click.prevent="submit(location)"
+        >
+          {{ location }}
+        </li>
+      </ul>
     </div>
   </section>
 </template>
@@ -39,6 +44,7 @@ export default {
   data() {
     return {
       search: '',
+      suggestedLocations: ['Canada', 'China', 'Nova York', 'California'],
     }
   },
   computed: {
@@ -47,13 +53,10 @@ export default {
     },
   },
   methods: {
-    submit() {
-      if (this.search !== '') {
-        this.$store.dispatch('weatherData/getWeatherInfos', this.search)
-        this.$store.dispatch('weatherData/getLocationImage', this.search)
-      } else {
-        return
-      }
+    submit(location) {
+      const result = location
+      this.$store.dispatch('weatherData/getWeatherInfos', result)
+      this.$store.dispatch('weatherData/getLocationImage', result)
     },
   },
 }
@@ -120,20 +123,23 @@ export default {
   }
 
   .suggested-location {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 250px;
-
-    p {
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 250px;
       color: #cccccc;
-      padding: 0.5rem;
-      cursor: pointer;
-      transition: 0.2s;
+      list-style: none;
 
-      &:hover {
-        border-bottom: 1px solid #cccccc;
-        color: #fdfdfd;
+      li {
+        padding: 0.5rem;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+          border-bottom: 1px solid #cccccc;
+          color: #fdfdfd;
+        }
       }
     }
   }

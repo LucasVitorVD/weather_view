@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container" :style="{ backgroundImage: 'url(' + locationImage.fullImg + ')' }">
+  <div class="app-container" :style="{ backgroundImage: locationImage.image }">
     <b-card
       no-body
       class="main-content"
@@ -29,7 +29,10 @@ export default {
   },
   computed: {
     locationImage() {
-      return this.$store.state.weatherData.locationImage
+      const imgUrl = this.$img(this.$store.state.weatherData.locationImage.fullImg, {format: 'webp'})
+      return {
+        image: `url('${imgUrl}')`
+      }
     }
   }
 }
@@ -38,11 +41,13 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
+@import '~/assets/styles/variables.scss';
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Ubuntu", sans-serif;
+  font-family: $font;
 }
 
 .app-container {
