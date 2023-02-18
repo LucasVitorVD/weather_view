@@ -38,6 +38,9 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
+  image: {
+    domains: ['https://raw.githubusercontent.com']
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

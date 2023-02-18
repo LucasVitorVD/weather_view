@@ -1,7 +1,7 @@
 <template>
   <section class="section-1">
     <nuxt-img
-      :src="locationImage.regularImg ?? '/london-city.jpg'"
+      :src="locationImage.regularImg ?? locationImage.fullImg"
       :alt="locationImage.alt"
       class="img"
     />
@@ -58,7 +58,7 @@ export default {
 }
 </script>
   
-  <style lang="scss">
+<style lang="scss">
 .section-1 {
   width: 70%;
   position: relative;
