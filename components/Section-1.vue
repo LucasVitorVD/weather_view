@@ -3,7 +3,6 @@
     <nuxt-img
       :src="locationImage.regularImg ?? '/london-city.jpg'"
       :alt="locationImage.alt"
-      placeholder
       class="img"
     />
     <div class="status">
@@ -25,11 +24,11 @@
         </div>
       </div>
       <div class="location-infos temp-details">
-        <b-img
+        <nuxt-img
           :src="weatherInfos.weatherStatusIcon"
           alt="Condições do tempo"
           id="weather-icon"
-        ></b-img>
+        />
         <span id="description" class="location-details">{{
           weatherInfos.weatherDescription
         }}</span>
