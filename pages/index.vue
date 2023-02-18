@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     locationImage() {
-      const imgUrl = this.$img(this.$store.state.weatherData.locationImage.fullImg, {format: 'webp'})
+      const imgUrl = this.$img(this.$store.state.weatherData.locationImage.fullImg)
       return {
         image: `url('${imgUrl}')`
       }
