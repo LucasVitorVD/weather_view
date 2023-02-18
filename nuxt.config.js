@@ -41,6 +41,8 @@ export default {
   image: {
     domains: ['https://raw.githubusercontent.com']
   },
+  ssr: true,
+  target: 'static',
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
