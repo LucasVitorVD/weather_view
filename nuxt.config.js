@@ -42,7 +42,7 @@ export default {
     domains: ['https://raw.githubusercontent.com']
   },
   ssr: true,
-  target: 'static',
+  provider: 'cloudinary',
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

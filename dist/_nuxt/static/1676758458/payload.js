@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/", {data:[{_img:{"/_ipx/_/london-city.jpg":"\u002F_nuxt\u002Fimage\u002F3e48ca.jpg","/_ipx/_/https://openweathermap.org/img/wn/01d.png":"\u002F_nuxt\u002Fimage\u002Fdebac3.png"}}],fetch:{},mutations:[]});

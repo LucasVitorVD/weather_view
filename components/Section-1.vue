@@ -24,11 +24,11 @@
         </div>
       </div>
       <div class="location-infos temp-details">
-        <nuxt-img
+        <b-img
           :src="weatherInfos.weatherStatusIcon"
           alt="Condições do tempo"
           id="weather-icon"
-        />
+        ></b-img>
         <span id="description" class="location-details">{{
           weatherInfos.weatherDescription
         }}</span>
