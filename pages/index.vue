@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container" :style="{ backgroundImage: locationImage.image }">
+  <div class="app-container" :style="{ backgroundImage: `url(${locationImage})` }">
     <b-card
       no-body
       class="main-content"
@@ -29,10 +29,7 @@ export default {
   },
   computed: {
     locationImage() {
-      const imgUrl = this.$img(this.$store.state.weatherData.locationImage.fullImg)
-      return {
-        image: `url('${imgUrl}')`
-      }
+      return this.$store.state.weatherData.locationImage.fullImg
     }
   }
 }
