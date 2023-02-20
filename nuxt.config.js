@@ -39,7 +39,8 @@ export default {
     '@nuxtjs/axios',
   ],
   image: {
-    domains: ['https://raw.githubusercontent.com']
+    domains: ['https://raw.githubusercontent.com'],
+    dir: 'static'
   },
   ssr: true,
   provider: 'cloudinary',
