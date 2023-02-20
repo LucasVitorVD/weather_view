@@ -1,10 +1,10 @@
 <template>
   <section class="section-1">
-    <nuxt-img
+    <b-img
       :src="locationImage.regularImg ?? locationImage.fullImg"
       :alt="locationImage.alt"
       class="img"
-    />
+    ></b-img>
     <div class="status">
       <h1 id="temp">{{ weatherInfos.temp }} Cº</h1>
       <div class="location-infos">
